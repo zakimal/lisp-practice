@@ -7,3 +7,30 @@
 		(drawline (- x 1))
 	)
 )
+
+(defun drawline_with_dotimes (n)
+  (dotimes (e n)
+    (format t "*")))
+
+(defun drawline_with_let (n)
+  (if (= 0 n) nil
+    (let () (format t "*")
+      (drawline (- n 1))
+      )
+    )
+  )
+
+(defun drawline_with_progn (n)
+  (if (= 0 n) nil
+    (progn (format t "*") (drawline(- n 1)))
+    )
+  )
+
+(defun drawline_with_cond (n)
+  (cond ((= 0 n) nil)
+        (t (format t "*")
+           (drawline ((- n 1)))
+           )
+        )
+  )
+
