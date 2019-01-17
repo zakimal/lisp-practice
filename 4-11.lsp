@@ -7,3 +7,12 @@
 		(t (cons (sleepy (first x)) (sleepy (rest x))))
 	)
 )
+
+(defun sleepy2 (x)
+    (cond
+        ((equal x nil) nil)
+        ((listp (first x)) (append (sleepy (first x)) (sleepy (rest x))))
+        ((symbolp (first x)) (cons 'z (sleepy (rest x))))
+        (t (sleepy (rest x)))
+    )
+)
